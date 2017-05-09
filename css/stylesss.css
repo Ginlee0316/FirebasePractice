@@ -1,0 +1,65 @@
+table.centered tbody th {
+    text-align: center;
+}
+body{
+    margin:0;
+}
+.top{
+    margin:0;
+    height: 50px;
+    background-color: lightseagreen;
+    text-align:center;
+    line-height: 50px;
+}
+.top span{
+    font-size:30px; 
+    color:white;
+}
+.Sign{
+    margin-top:50px;
+    margin-right:30px;
+    margin-left:30px;
+    border:solid;
+    border-radius:5px;
+    border-width:2px; 
+}
+.Sign_title{
+    margin:10px;
+    margin-top:5px;
+    padding-bottom:5px;
+    border-bottom: solid;
+    border-width:1px;
+    border-color: #123746;
+    
+    text-align: center;
+    font-size:20px;
+    color:#453656;
+}
+.Sign_email{
+    margin-top:30px;
+    margin-left:10px;
+    margin-right:10px;
+    text-align: center;
+}
+.Sign_password{
+    margin-top:20px;
+    margin-left:10px;
+    margin-right:10px;
+    text-align: center;
+}
+.Sign_btm{
+    margin:10px;
+    text-align: center;
+    margin-top:20px;
+}
+.Sign_btm button{
+    width:200px; 
+    height: 28px;
+}
+.chat_contain{
+    margin:10px;
+}
+.rrr{
+    margin:30px;
+    text-align:right;
+}
