@@ -60,37 +60,36 @@ $(document).ready(function(){
         let occupation = $('#occupation').val();
         let age = $('#age').val();
         let description = $('#description').val();
-            firebase.database().ref('/users/' + user.uid).set({
-                username: username,
-                occupation: occupation,
-                age: age,
-                description: description,
-            });
+        firebase.database().ref('/users/' + user.uid).set({
+            username: username,
+            occupation: occupation,
+            age: age,
+            description: description,
+        });
             
             //this.aaaa();
-           window.location = 'info.html';
-        })/*.catch(function(error) {
-            /*let errorCode = error.code;
-            if (errorCode === 'auth/email-already-in-use') {
-                alert('失敗，E-Mail 已被使用');
-            } else if (errorCode === 'auth/invalid-email') {
-                alert('失敗，不合法的 E-Mail');
-            } else if (errorCode === 'auth/weak-password') {
-                alert('失敗，密碼太弱，至少需超過 6 個字元');
+        window.location = 'info.html';
+    })
+
+    if ($('body').attr('id') == 'vv') {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user == null) {
+                window.location = 'index.html'
             }
-            firebase.database().ref('/users/' + user.uid).set({
-                username: '',
-                occupation: '',
-                age: 0,
-                description: '',
-                email: email
-            });
-        });*/
-    });
-function updateOrSetProfile(choice) {
-    $('#a').text(username);
-    //$('#b').text(email);
-    $('#c').text(occupation);
-    $('#d').text(age);
-    $('#e').text(description);
-}
+            firebase.database().ref('/users/' + user.uid).on('value', function(snapshot) {
+                $('#a').text(snapshot.val().username);
+                $('#b').text(user.email);
+                $('#c').text(snapshot.val().occupation);
+                $('#d').text(snapshot.val().age);
+                $('#e').text(snapshot.val().description);
+            })
+        })
+    };
+    $('#out').on('click', function() {
+        firebase.auth().signOut();
+        window.location = 'index.html';
+    })
+});
+
+
+
